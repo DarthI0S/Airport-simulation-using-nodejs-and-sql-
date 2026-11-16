@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripulación | Sistema Aeroportuario</title>
+
+    <link rel="stylesheet" href="../../Assets/css/admin.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-plane"></i>
+            <h2>Aeropuerto</h2>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="aerolineas.html">
+                    <i class="fa-solid fa-building"></i>
+                    Aerolíneas
+                </a>
+            </li>
+
+            <li>
+                <a href="aeronaves.html">
+                    <i class="fa-solid fa-plane-circle-check"></i>
+                    Aeronaves
+                </a>
+            </li>
+
+            <li>
+                <a href="rutas.html">
+                    <i class="fa-solid fa-route"></i>
+                    Rutas
+                </a>
+            </li>
+
+            <li>
+                <a href="vuelos.html">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    Vuelos
+                </a>
+            </li>
+
+            <li>
+                <a href="pasajeros.html">
+                    <i class="fa-solid fa-users"></i>
+                    Pasajeros
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="tripulacion.html">
+                    <i class="fa-solid fa-user-tie"></i>
+                    Tripulación
+                </a>
+            </li>
+            <li>
+                <a href="reservaciones.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Reservaciones
+                </a>
+            </li>
+            
+            <li>
+                <a href="../../index.html">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar Sesión
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- CONTENIDO -->
+
+    <main>
+
+        <header>
+
+            <div>
+                <h1>Tripulación</h1>
+                <p>Gestión del personal de vuelo</p>
+            </div>
+
+            <a href="nuevo_miembro_tripulacion.html" class="btn-primary">
+                <i class="fa-solid fa-plus"></i>
+                Nuevo Miembro
+            </a>
+
+        </header>
+
+        <!-- TARJETAS -->
+
+        <section class="stats">
+
+            <div class="card">
+                <i class="fa-solid fa-user-tie"></i>
+                <h2 id="cantTripulacion">326</h2>
+                <p>Total Personal</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-plane"></i>
+                <h2 id="cantPilotos">58</h2>
+                <p>Pilotos</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-user-group"></i>
+                <h2 id="cantCopilotos">214</h2>
+                <p>Copilotos</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h2 id="cantSobrecargos">287</h2>
+                <p>Sobrecargos</p>
+            </div>
+
+        </section>
+
+        <!-- TABLA -->
+
+        <section class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Aerolonia</th>
+                        <th>Licencia</th>
+                        <th>Nombre</th>
+                        <th>Puesto</th>
+                        <th>Fecha Contratacion</th>
+                        <th>Horas de Vuelo</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaTripulacion">
+                    <tr>
+                        <td>PIL-45821</td>
+                        <td>Carlos Mendoza</td>
+                        <td>Piloto</td>
+                        <td>01/01/2026</td>
+                        <td>12</td>
+                        <td>
+                            <button class="btn-edit">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button class="btn-delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div id="panelEditar" class="edit-panel">
+            <div class="edit-header">
+                <h2>Editar Tripulante</h2>
+                <button onclick="cerrarEditor()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="editarTripulante" class="edit-form">
+                <input id="licencia" type="number" hidden>
+
+                <label>Aerolonia</label>
+                <input id="aerolinia" type="text" >
+
+                <label>Nombre</label>
+                <input id="nombre" type="text" >
+
+                <label>Apellido</label>
+                <input id="apellido" type="text">
+
+                <label>Puesto</label>
+                <input id="puesto" type="text">
+
+                <label>Fecha Contratacion</label>
+                <input id="fecha_contratacion" type="date">
+
+                <label>Horas de Vuelo</label>
+                <input id="horas_vuelo" type="number">
+
+                <button type="submit" class="btn-save">
+                    Guardar Cambios
+                </button>
+            </form>
+        </div>
+    </main>
+
+</body>
+<script src="../../Assets/JS/Admin/tripulacion.js"></script>
+</html>

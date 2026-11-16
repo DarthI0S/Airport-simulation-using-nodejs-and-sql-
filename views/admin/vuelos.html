@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuelos | Sistema Aeroportuario</title>
+
+    <link rel="stylesheet" href="../../Assets/css/admin.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<script>
+
+function abrirEditorVuelo() {
+    document
+        .getElementById("panelVuelo")
+        .classList.add("active");
+}
+
+function cerrarEditorVuelo() {
+    document
+        .getElementById("panelVuelo")
+        .classList.remove("active");
+}
+
+function abirAsignarTripulacion(){
+    document    
+        .getElementById("panelTripulacion")
+        .classList.add("active");
+}
+
+function abrirTripulacion() {
+    document
+        .getElementById("panelTripulacion")
+        .classList.add("active");
+}
+
+function cerrarTripulacion() {
+    document
+        .getElementById("panelTripulacion")
+        .classList.remove("active");
+}
+
+</script>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-plane"></i>
+            <h2>Aeropuerto</h2>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="aerolineas.html">
+                    <i class="fa-solid fa-building"></i>
+                    Aerolíneas
+                </a>
+            </li>
+
+            <li>
+                <a href="aeronaves.html">
+                    <i class="fa-solid fa-plane-circle-check"></i>
+                    Aeronaves
+                </a>
+            </li>
+
+            <li>
+                <a href="rutas.html">
+                    <i class="fa-solid fa-route"></i>
+                    Rutas
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="vuelos.html">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    Vuelos
+                </a>
+            </li>
+
+            <li>
+                <a href="pasajeros.html">
+                    <i class="fa-solid fa-users"></i>
+                    Pasajeros
+                </a>
+            </li>
+
+            <li>
+                <a href="tripulacion.html">
+                    <i class="fa-solid fa-user-tie"></i>
+                    Tripulación
+                </a>
+            </li>
+            <li>
+                <a href="reservaciones.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Reservaciones
+                </a>
+            </li>
+            <li>
+                <a href="../../index.html">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar Sesión
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- CONTENIDO -->
+
+    <main>
+
+        <header>
+
+            <div>
+                <h1>Gestión de Vuelos</h1>
+                <p>Control y monitoreo de operaciones aéreas</p>
+            </div>
+
+            <div class="header-acciones">
+                    
+                    <button class="btn-primary" onclick="getViewVuelosHoy()">
+                        <i class="fa-solid fa-plane"></i>
+                        Vuelos de hoy
+                    </button>
+
+                    <button class="btn-primary" onclick="getViewVuelos()">
+                        <i class="fa-solid fa-plane"></i>
+                        Próximos vuelos
+                    </button>
+
+                    <a href="nuevo_vuelo.html" class="btn-primary">
+                        <i class="fa-solid fa-plus"></i>
+                        Nuevo Vuelo
+                    </a>
+                    
+                </div>
+        </header>
+
+        <!-- TARJETAS -->
+
+        <section class="stats">
+
+            <div class="card">
+                <i class="fa-solid fa-plane-departure"></i>
+                <h2 id="vuelosHoy">126</h2>
+                <p>Vuelos Hoy</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-plane"></i>
+                <h2 id="vuelosProgramados">84</h2>
+                <p>Programados</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-cloud"></i>
+                <h2 id="vuelosRetrasados">5</h2>
+                <p>Retrasados</p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-check-circle"></i>
+                <h2 id="vuelosCompletados">37</h2>
+                <p>Aterrizados</p>
+            </div>
+
+        </section>
+
+        
+        <!-- TABLA -->
+
+        <section class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aerolínea</th>
+                        <th>Ruta</th>
+                        <th>Aeronave</th>
+                        <th>Salida</th>
+                        <th>Llegada</th>
+                        <th>Asientos</th>
+                        <th>Puerta</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="vuelos">
+                    <tr>
+                        <td>Aeroméxico</td>
+                        <td>MEX ➜ CUN</td>
+                        <td>Boeing 737-800</td>
+                        <td>08:30</td>
+                        <td>10:50</td>
+                        <td></td>
+                        <td>A12</td>
+                        <td>
+                            <span class="status scheduled-status">
+                                Programado
+                            </span>
+                        </td>
+                        <td>
+
+                            <button class="btn-edit" onclick="abrirEditorVuelo()">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        <!-- 
+                            <button class="btn-delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button> -->
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    <!-- PANEL EDITAR VUELO -->
+        <div id="panelVuelo" class="edit-panel">
+            <div class="edit-header">
+                <h2>Editar Reservación</h2>
+                <button onclick="cerrarEditorVuelo()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="editarVuelo" class="edit-form">
+                <input type="hidden" id="vuelo_id">
+                <input type="hidden" id="aerolinea_id">
+                <input type="hidden" id="ruta_id">
+                <input type="hidden" id="aeronave_id">
+                <!-- <label>ID Reservación</label>
+                <input type="text" value="RES-1001"> -->
+
+                <div class="form-group">
+                    <label>Aerolinea</label>
+                    <select id="selectAerolinea">
+                        <option value="">Seleccionar Aerolinea</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Ruta</label>
+                    <select id="selectRuta">
+                        <option value="">Seleccionar Ruta</option>
+                    </select>   
+
+                </div>
+
+                <div class="form-group">
+                    <label>Aeronave</label>
+                    <select id="selectAeronave">
+                        <option value="">Seleccionar Aeronave</option>
+                    </select>
+                </div>
+                                
+                <label>Asientos</label>
+                <input id="asientos" type="number">
+
+                      
+                <div class="form-group">
+                    <label>Puerta de Embarque</label>
+                    <select id="selectPuerta">
+                        <option value="">Seleccionar Puerta</option>
+                    </select>
+                </div>
+                      
+                <label>Fecha de Salida</label>
+                <input id="fechaSalida" type="date" >
+                <label>Hora de Salida</label>
+                <input id="horaSalida" type="time">
+
+                <label>Fecha de llegada</label>
+                <input id="fechaLlegada" type="date" >
+                <label>Hora de llegada</label>
+                <input id="horaLlegada" type="time">
+
+                <button type="submit" class="btn-save">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Guardar Cambios
+                </button>
+            </form>
+
+        </div>
+        <!-- PANEL VISTA DE TRIPULANTE --> 
+        <div id="panelTripulacion" class="edit-panel">
+            <div class="edit-header">
+                <h2>Miembros de la Tripulación</h2>
+                <button onclick="cerrarTripulacion()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="formTripulacion" class="edit-form">
+                <div class="form-group">
+                    <label>Piloto</label>
+                    <select id="Piloto">
+                        <option value="">Seleccionar Piloto</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Copiloto</label>
+                    <select id="Copiloto">
+                        <option value="">Seleccionar Copiloto</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Azafata</label>
+                    <select id="Azafata1">
+                        <option value="">Seleccionar Azafata</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Azafata</label>
+                    <select id="Azafata2">
+                        <option value="">Seleccionar Azafata</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Azafata</label>
+                    <select id="Azafata3">
+                        <option value="">Seleccionar Azafata</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+</body>
+<script src="../../Assets/JS/Admin/vuelos.js"></script>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Vuelo | Sistema Aeroportuario</title>
+
+    <link rel="stylesheet" href="../../Assets/css/admin.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-plane"></i>
+            <h2>Aeropuerto</h2>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="admin.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="aerolineas.html">
+                    <i class="fa-solid fa-building"></i>
+                    Aerolíneas
+                </a>
+            </li>
+
+            <li>
+                <a href="aeronaves.html">
+                    <i class="fa-solid fa-plane-circle-check"></i>
+                    Aeronaves
+                </a>
+            </li>
+
+            <li>
+                <a href="rutas.html">
+                    <i class="fa-solid fa-route"></i>
+                    Rutas
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="vuelos.html">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    Vuelos
+                </a>
+            </li>
+
+            <li>
+                <a href="pasajeros.html">
+                    <i class="fa-solid fa-users"></i>
+                    Pasajeros
+                </a>
+            </li>
+
+            <li>
+                <a href="tripulacion.html">
+                    <i class="fa-solid fa-user-tie"></i>
+                    Tripulación
+                </a>
+            </li>
+            
+
+            <li>
+                <a href="reservaciones.html">
+                    <i class="fa-solid fa-ticket"></i>
+                    Reservaciones
+                </a>
+            </li>
+
+            
+            <li>
+                <a href="../../index.html">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Cerrar Sesión
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- CONTENIDO -->
+
+    <main>
+
+        <header>
+
+            <div>
+                <h1>Nuevo Vuelo</h1>
+                <p>Programación de un nuevo vuelo</p>
+            </div>
+
+            
+            <a href="vuelos.html" class="btn-primary">
+                <i class="fa-solid fa-arrow-left"></i>
+                Volver
+            </a>
+
+        </header>
+
+        <section class="form-container">
+
+            <form id="nuevoVueloForm" class="form-grid">
+
+                <!-- INFORMACIÓN GENERAL -->
+
+                <div class="form-group">
+
+                    <label>Aerolínea</label>
+
+                    <select id="selectAerolinea">
+                        <option value="">Seleccionar Aerolínea</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Ruta</label>
+
+                    <select id="selectRuta">
+                        <option value="">Seleccionar Ruta</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Aeronave</label>
+
+                    <select id="selectAeronave">
+                        <option value="">Seleccionar Modelo</option>
+                    </select>
+
+                </div>
+
+                <!-- FECHAS -->
+
+                <div class="form-group">
+
+                    <label>Fecha de Salida</label>
+
+                    <input id="fechaSalida" type="date">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Hora de Salida</label>
+
+                    <input id="horaSalida" type="time">
+
+                </div>
+
+
+                <!-- OPERACIÓN -->
+
+                <div class="form-group">
+
+                    <label>Puerta de Embarque</label>
+
+                    <select id="selectPuerta">
+                        <option value="">Seleccionar Puerta</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A3">A3</option>
+                        <option value="B1">B1</option>
+                        <option value="B2">B2</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Asientos Disponibles</label>
+
+                    <input
+                        id="inAsientos"
+                        type="number"
+                        placeholder="180">
+
+                </div>
+
+                <!-- <div class="form-group">
+
+                    <label>Precio Base ($)</label>
+
+                    <input
+                        id="inPrecio"
+                        type="number"
+                        placeholder="3500">
+
+                </div> -->
+
+
+                <!-- BOTONES -->
+
+                <div class="form-actions">
+
+                    <a href="vuelos.html"
+                        class="btn-cancel">
+
+                        Cancelar
+
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-save">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Guardar Vuelo
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+<script src="../../Assets/JS/Admin/nuevo_vuelo.js"></script>
+
+</html>
